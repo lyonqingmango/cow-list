@@ -8,8 +8,17 @@ class AddCow extends React.Component {
       description:"",
     }
     this.handleInputChange =this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
 
   }
+  handleSubmit (event){
+    event.preventDefault();
+    const data = { name: this.state.name, description: this.state.description};
+    console.log(data+'data')
+    this.props.handleSubmit(data);
+
+  }
+
 
   handleInputChange(event){
     event.preventDefault();
@@ -34,7 +43,7 @@ class AddCow extends React.Component {
 
   render () {
     return (
-      <form onSubmit ={this.props.handleSubmit}>
+      <form onSubmit ={this.handleSubmit}>
         <label>
           Name:
           <input
