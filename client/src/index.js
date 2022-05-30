@@ -22,7 +22,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getAll()
-
   }
   getAll(){
     fetch("http://localhost:3000/api/cows")
@@ -47,7 +46,7 @@ class App extends React.Component {
       },
       body: JSON.stringify(data),
     })
-    .then(res => {console.log('res.body'+ res.body); return res.json()})
+    .then(response => response.json())
     .then(data => {
     console.log('Success:', data);
     })
